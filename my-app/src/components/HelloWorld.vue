@@ -1,15 +1,26 @@
 <template>
-  <div class="back">
+  <div class="back" @click.self="closeHelloWorld">
     <div class="model" :class="{sale : theme ==='dark'}">
-      <h1>Helo to page of brahim</h1>
-      <p>i'm learning the vue js with css there is tools of frentend devloper</p>
+      <slot></slot>
+    <div class="action">
+      <slot name="links"></slot>
+    </div>
+      
     </div>
   </div>
 </template>
 <script>
 export default {
-  props:['msg','theme']
-}
+  props:['msg','theme'],
+  data(){
+
+  },methods:{
+    closeHelloWorld(){
+      this.$emit('close')
+    }
+  }
+  }
+
 </script>
 <style  scoped>
 .model.sale{

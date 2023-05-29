@@ -1,7 +1,18 @@
 <template>
 <div>
-    <HelloWorld msg="Welcome to Your Vue.js App" theme="dark"/>
+    <button @click.left="ShowModel" class="Butt">{{ showWord }}</button>
+    <div v-show="showModel">
+    <HelloWorld theme="dark" @close="ShowModel">
+      <template  v-slot:links>
+          <a href="#">sign up now</a>
+          <a href="#">more info</a>
 
+      </template>
+      <h1>{{ msg }}</h1>
+      <p>i'm learning the vue js with css there is tools of frentend devloper</p>
+    
+    </HelloWorld>
+    </div>
 </div>
 </template>
 
@@ -12,6 +23,21 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data(){
+    return{
+      showModel : false,
+      showWord:'Click to show Model',
+      msg:"Welcome to Your Vue.js App"
+    }
+  },methods:{
+    ShowModel(){
+      this.showModel=!this.showModel;
+      if(this.showModel==true)
+        this.showWord='Click to hide Model'
+      else
+      this.showWord='Click to show Model'
+    }
   }
 }
 </script>
@@ -24,5 +50,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.Butt{
+  width: fit-content;
+  padding: 10px 20px;
+  background: white;
+  border:2px solid rgb(37, 37, 217) ;
+  border-radius:10px;
+  font-weight: 600;margin-bottom: 20px;
+  font-size:16px ;
 }
 </style>
