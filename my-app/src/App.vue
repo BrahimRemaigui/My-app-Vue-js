@@ -54,10 +54,15 @@ export default {
 .Butt{
   width: fit-content;
   padding: 10px 20px;
-  background: white;
-  border:2px solid rgb(37, 37, 217) ;
+  background: #03cfb4;;
+  border:3px solid #03cfb4; ;
   border-radius:10px;
   font-weight: 600;margin-bottom: 20px;
   font-size:16px ;
+  transition: 0.5s;
+}
+.Butt:hover{
+  transform: scale(1.1) rotate(4deg);
+
 }
 </style>
